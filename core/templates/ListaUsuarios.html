@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Usuários {% endblock %}
+{% block main %}
+<table class="table table-dark">
+<thead>
+   <tr>
+      <th scope="col">UserID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Alterar</th>
+      <th scope="col">Remover</th>
+   </tr>
+</thead>
+<tbody>
+   {% for usuario in usuarios %}
+   <tr>
+      <th scope="row"> {{ usuario.id }}</th>
+      <td>{{ usuario.username }}</td>
+      <td><a href="{% url 'alterarusuario' usuario.id %}"><i class ="glyphicon glyphicon-pencil"></i>Alterar</a></td>
+      <td><a href="{% url 'removerusuario' usuario.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+   </tr>
+   {% endfor %}
+</tbody>
+</table>
+<a href="{% url 'inserirusuario' %}" class="btn btn-primary"> Cadastrar usuário </a>
+{% endblock %}
+{% block footer %}
+<footer class="footer">
+   <div class="container">
+      <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+   </div>
+</footer>
+{% endblock %}

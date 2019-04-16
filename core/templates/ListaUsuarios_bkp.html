@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Usuários {% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-6">
+            <h3>Lista de usuários</h3>
+            <ul class="list-group">
+                {% for usuario in usuarios %}
+                    <li class="list-group-item">
+                        
+                        <a href="{% url 'alterarusuario' usuario.id %}">{{ usuario.username }}</a>
+                        <a href="{% url 'removerusuario' usuario.id %}">                    
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                {% endfor %}
+            </ul>
+
+            <br>
+
+            <a href="{% url 'inserirusuario' %}" class="btn btn-primary"> Novo cliente </a>
+
+        </div>
+
+        <div class="col">
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+      </div>
+    </footer>
+{% endblock %}

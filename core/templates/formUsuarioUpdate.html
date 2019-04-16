@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Lista de usuários{% endblock title %}
+
+<body>
+{% block main %}
+
+
+<form method="POST">
+   <input type="hidden" name="csrfmiddlewaretoken" value="0NW7IFCllNnRrNtNyAdfM6rZNatrXxtSsyNUoUaAG9E3G2Q8fb6vlx9utHvQIiEI">
+   <div class="form-group">
+      <label class="control-label  " for="id_logon">Logon</label>
+      <div class=" ">
+         <input type="text" name="logon" maxlength="20" class=" form-control" id="id_logon">
+      </div>
+   </div>
+   <div class="form-group has-error">
+      <label class="control-label  " for="id_senha">Senha</label>
+      <div class=" ">
+         <input type="text" name="senha" maxlength="20" class=" form-control" required id="id_senha">
+         <span class="help-block ">Este campo é obrigatório.</span>
+      </div>
+   </div>
+   <div class="form-group has-error">
+      <label class="control-label  " for="id_nome">Nome</label>
+      <div class=" ">
+         <input type="text" name="nome" maxlength="30" class=" form-control" required id="id_nome">
+         <span class="help-block ">Este campo é obrigatório.</span>
+      </div>
+   </div>
+   <div class="form-group has-error">
+      <label class="control-label  " for="id_email">Email</label>
+      <div class=" ">
+         <input type="text" name="email" maxlength="40" class=" form-control" required id="id_email">
+         <span class="help-block ">Este campo é obrigatório.</span>
+      </div>
+   </div>
+   <div class="form-group">
+      <label class="control-label  " for="id_celular">Celular</label>
+      <div class=" ">
+         <input type="text" name="celular" maxlength="9" class=" form-control" id="id_celular">
+      </div>
+   </div>
+   <div class="form-group">
+      <label class="control-label  " for="id_dtexpiracao">Dtexpiracao</label>
+      <div class=" ">
+         <input type="text" name="dtexpiracao" class=" form-control" id="id_dtexpiracao">
+      </div>
+   </div>
+   <button type="submit" class ="btn btn-secondary"> ENVIAR </button>
+</form>
+</div>
+
+
+{% endblock main %}
+</body>
+
+
+</html>

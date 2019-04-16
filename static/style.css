@@ -1,0 +1,18 @@
+.trash-item {
+    float: right;
+}
+
+.container {
+    float: right;
+    border-top-color: aqua
+}
+
+#btnLogin {
+    border-radius: 6.25rem;
+    position: absolute;
+    right: 150px; 
+}
+
+#olaUser {
+    right: 150px; 
+}
