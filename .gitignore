@@ -202,3 +202,7 @@ dmypy.json
 .history
 
 # End of https://www.gitignore.io/api/django,python,visualstudiocode
+
+#inputs
+datacenter.xlsx
+CONTRATOS.xlsx
