@@ -12,6 +12,7 @@
       <th scope="col">Valor Tracking</th>
       <th scope="col">Franquia</th>
       <th scope="col">Fat. Minimo</th>
+      <th scope="col">Bancos</th>
       <th scope="col">Alterar</th>
       <th scope="col">Remover</th>
       
@@ -28,6 +29,7 @@
       <td>{{ parceiro.valor_tracking }}</td>
       <td>{{ parceiro.franquia }}</td>
       <td>{{ parceiro.faturamento_minimo }}</td>
+      <td><a href="{% url 'bancos_parceiro' parceiro.id %}"><i class ="glyphicon glyphicon-pencil"></i>Ver Bancos</a></td>
       <td><a href="{% url 'alterarparceiro' parceiro.id %}"><i class ="glyphicon glyphicon-pencil"></i>Alterar</a></td>
       <td><a href="{% url 'removerparceiro' parceiro.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
@@ -36,6 +38,7 @@
 </tbody>
 </table>
 <a href="{% url 'criarpaceiro' %}" class="btn btn-primary"> Cadastrar Parceiro </a>
+<a href="{% url 'criarpaceiroemlote' %}" class="btn btn-primary"> Cadastrar em Lote </a>
 {% endblock %}
 {% block footer %}
 <footer class="footer">

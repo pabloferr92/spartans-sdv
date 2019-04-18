@@ -6,6 +6,8 @@ from .forms import ParceiroForm
 from descritivo.models.banco_dados import BancoDados
 from descritivo.forms import BancoForm
 from core.models.models import AuthUser
+from descritivo.services.InsereParceiro import LerParceiroDoArquivo
+from descritivo.services.InsereBancos import LerBancosDoArquivo
 
 
 def ler_parceiro(request):
@@ -31,6 +33,11 @@ def criar_parceiro(request):
         )
         return redirect('parceiros')
     return render(request, "FormParceiro.html",{"form": form} )
+
+def criar_parceiro_lote(request):
+    LerParceiroDoArquivo()
+    return redirect('parceiros')
+
 
 def alterar_parceiro(request,id):
     parceiro = Parceiro.objects.get(id=id)
@@ -62,6 +69,13 @@ def ler_banco(request):
     }
     return render(request,"ListaBancos.html", context)
 
+def ler_banco_por_parceiro(request,id):
+    context = {
+        "bancos": BancoDados.objects.filter(id_parceiro=int(id))
+    }
+    print(id,context)
+    return render(request,"ListaBancos.html", context)
+
 def criar_banco(request):
     form = BancoForm(request.POST, None)
     if request.method == "POST":
@@ -78,6 +92,11 @@ def criar_banco(request):
         )
         return redirect('bancos')
     return render(request, "FormBancos.html",{"form": form} )
+
+def criar_banco_lote(request):
+    LerBancosDoArquivo()
+    return redirect('bancos')
+
 
 def alterar_banco(request,id):
     banco = BancoDados.objects.get(id=id)

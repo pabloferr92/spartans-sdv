@@ -15,16 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from descritivo.views import ler_parceiro,alterar_parceiro,criar_parceiro,remover_parceiro
-from descritivo.views import ler_banco,alterar_banco,criar_banco,remover_banco
+from descritivo.views import ler_parceiro,alterar_parceiro,criar_parceiro,remover_parceiro, criar_parceiro_lote
+from descritivo.views import ler_banco,alterar_banco,criar_banco,remover_banco, criar_banco_lote, ler_banco_por_parceiro
 
 urlpatterns = [
     path('criarpaceiro/', criar_parceiro,name='criarpaceiro'),
+    path('criarpaceiroemlote/', criar_parceiro_lote,name='criarpaceiroemlote'),
     path('parceiros/', ler_parceiro, name='parceiros'),
     path('alterarparceiro/<int:id>', alterar_parceiro, name='alterarparceiro'),
     path('removerparceiro/<int:id>', remover_parceiro, name='removerparceiro'),
     path('criarbanco/', criar_banco,name='criarbanco'),
+    path('criarbancoemlote/', criar_banco_lote,name='criarbancoemlote'),
     path('bancos/', ler_banco, name='bancos'),
+    path('bancos_parceiro/<int:id>', ler_banco_por_parceiro, name = 'bancos_parceiro'),
     path('alterarbanco/<int:id>', alterar_banco, name='alterarbanco'),
     path('removerbanco/<int:id>', remover_banco, name='removerbanco')
 
