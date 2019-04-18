@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',
     'core',
+    'descritivo'
     #'django_forms_bootstrap'
 ]
 

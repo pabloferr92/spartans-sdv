@@ -31,3 +31,6 @@ class AuthUser(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_user'
+
+    def __str__(self):
+        return self.username

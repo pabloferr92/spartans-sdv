@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import entrar,logout_view, lerUsuarios
-from core.views import alterarusuario,removerusuario, inserirusuario
+from descritivo.views import ler_parceiro,alterar_parceiro,criar_parceiro,remover_parceiro
 
 urlpatterns = [
-    #path('/', admin.site.urls),
+    path('criarpaceiro/', criar_parceiro,name='criarparceiro'),
     #path('/', core),
 
 ]

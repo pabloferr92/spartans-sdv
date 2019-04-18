@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from core import urls as core_urls
+from descritivo import urls as desc
 from core.views import home
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include(core_urls), name="home"),
-    path('',home, name='')
+    path('',home, name=''),
+    path('desc/', include(desc), name="desc"),
 ]

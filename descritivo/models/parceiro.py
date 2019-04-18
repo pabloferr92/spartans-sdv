@@ -1,5 +1,5 @@
 from django.db import models
-
+from core.models.models import AuthUser
 
 class Parceiro(models.Model):
     id = models.IntegerField(primary_key=True)

@@ -1,4 +1,9 @@
 from django.db import models
+from descritivo.models.parceiro import Parceiro
+from descritivo.models.banco_dados import BancoDados
+
+
+
 
 
 class Fechamento(models.Model):
