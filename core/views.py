@@ -36,7 +36,7 @@ def logout_view(request):
     #HttpResponse.delete_cookie('sessionid')
     return HttpResponseRedirect('/')
 
-@login_required
+
 def lerUsuarios(request):
     contexto = {
     "usuarios" : AuthUser.objects.all()
@@ -45,7 +45,6 @@ def lerUsuarios(request):
     return render(request,'ListaUsuarios.html',contexto)
 
 
-@login_required
 def alterarusuario(request, iduser):
     usuario = AuthUser.objects.get(id=iduser)
     form = UserForm(instance=usuario)
@@ -58,7 +57,7 @@ def alterarusuario(request, iduser):
     user.email = email
     user.set_password(request.POST.get("password"))
     user.save()
-    return render(request, "formUsuario.html", {"form": form} ) 
+    return redirect('usuarios')
     
 
 

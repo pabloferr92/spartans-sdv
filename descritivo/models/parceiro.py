@@ -2,7 +2,7 @@ from django.db import models
 from core.models.models import AuthUser
 
 class Parceiro(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     nome_provedor = models.CharField(max_length=50, blank=True, null=True)
     razao_social = models.CharField(max_length=150, blank=True, null=True)
     valor_pagina = models.FloatField(blank=True, null=True)
@@ -16,3 +16,6 @@ class Parceiro(models.Model):
     class Meta:
         managed = False
         db_table = 'parceiro'
+
+    def __str__(self):
+        return self.nome_provedor

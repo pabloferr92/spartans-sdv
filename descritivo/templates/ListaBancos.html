@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Usuários {% endblock %}
+{% block main %}
+<table class="table table-dark">
+<thead>
+   <tr>
+      <th scope="col">ID Banco</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Provedor</th>
+      <th scope="col">Volume</th>
+      <th scope="col">Releasers</th>
+      <th scope="col">Policy</th>
+      <th scope="col">charge_back</th>
+      <th scope="col">tracking</th>
+      <th scope="col">Isento</th>
+      <th scope="col">Alterar</th>
+      <th scope="col">Remover</th>
+      
+   </tr>
+</thead>
+<tbody>
+   {% for banco in bancos %}
+   <tr>
+      <th scope="row"> {{ banco.id }}</th>
+      <td>{{ banco.nome_banco }}</td>
+      <td>{{ banco.id_parceiro.nome_provedor }}</td>
+      <td>{{ banco.volume_paginas }}</td>
+      <td>{{ banco.qtde_releaser }}</td>
+      <td>{{ banco.policy }}</td>
+      <td>{{ banco.charge_back }}</td>
+      <td>{{ banco.tracking }}</td>
+      <td>{{ banco.isento }}</td>
+      <td><a href="{% url 'alterarbanco' banco.id %}"><i class ="glyphicon glyphicon-pencil"></i>Alterar</a></td>
+      <td><a href="{% url 'removerbanco' banco.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+
+   </tr>
+   {% endfor %}
+</tbody>
+</table>
+<a href="{% url 'criarbanco' %}" class="btn btn-primary"> Cadastrar Banco </a>
+{% endblock %}
+{% block footer %}
+<footer class="footer">
+   <div class="container">
+      <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+   </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Usuários {% endblock %}
+{% block main %}
+<table class="table table-dark">
+<thead>
+   <tr>
+      <th scope="col">ID Parceiro</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Valor Página</th>
+      <th scope="col">Valor Releaser</th>
+      <th scope="col">Valor Policy</th>
+      <th scope="col">Valor Tracking</th>
+      <th scope="col">Franquia</th>
+      <th scope="col">Fat. Minimo</th>
+      <th scope="col">Alterar</th>
+      <th scope="col">Remover</th>
+      
+   </tr>
+</thead>
+<tbody>
+   {% for parceiro in parceiros %}
+   <tr>
+      <th scope="row"> {{ parceiro.id }}</th>
+      <td>{{ parceiro.nome_provedor }}</td>
+      <td>{{ parceiro.valor_pagina }}</td>
+      <td>{{ parceiro.valor_releaser }}</td>
+      <td>{{ parceiro.valor_policy }}</td>
+      <td>{{ parceiro.valor_tracking }}</td>
+      <td>{{ parceiro.franquia }}</td>
+      <td>{{ parceiro.faturamento_minimo }}</td>
+      <td><a href="{% url 'alterarparceiro' parceiro.id %}"><i class ="glyphicon glyphicon-pencil"></i>Alterar</a></td>
+      <td><a href="{% url 'removerparceiro' parceiro.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+
+   </tr>
+   {% endfor %}
+</tbody>
+</table>
+<a href="{% url 'criarpaceiro' %}" class="btn btn-primary"> Cadastrar Parceiro </a>
+{% endblock %}
+{% block footer %}
+<footer class="footer">
+   <div class="container">
+      <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+   </div>
+</footer>
+{% endblock %}

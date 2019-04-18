@@ -16,9 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from descritivo.views import ler_parceiro,alterar_parceiro,criar_parceiro,remover_parceiro
+from descritivo.views import ler_banco,alterar_banco,criar_banco,remover_banco
 
 urlpatterns = [
-    path('criarpaceiro/', criar_parceiro,name='criarparceiro'),
+    path('criarpaceiro/', criar_parceiro,name='criarpaceiro'),
+    path('parceiros/', ler_parceiro, name='parceiros'),
+    path('alterarparceiro/<int:id>', alterar_parceiro, name='alterarparceiro'),
+    path('removerparceiro/<int:id>', remover_parceiro, name='removerparceiro'),
+    path('criarbanco/', criar_banco,name='criarbanco'),
+    path('bancos/', ler_banco, name='bancos'),
+    path('alterarbanco/<int:id>', alterar_banco, name='alterarbanco'),
+    path('removerbanco/<int:id>', remover_banco, name='removerbanco')
+
     #path('/', core),
 
 ]

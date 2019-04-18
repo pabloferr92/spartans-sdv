@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Inserir Banco{% endblock title %}
+
+<body>
+{% block main %}
+    <form method="POST">
+        {% csrf_token %}
+      {{ form|bootstrap }}
+        <button type="submit" class ="btn btn-secondary"> ENVIAR </button>
+    </form>
+{% endblock main %}
+</body>
+
+
+</html>

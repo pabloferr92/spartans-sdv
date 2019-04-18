@@ -28,10 +28,10 @@
         <a class="nav-link" href="{% url 'usuarios' %}">Usuários</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">LOREM IPSUM</a>
+        <a class="nav-link" href="{% url 'parceiros' %}"> Parceiros </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Produtos</a>
+        <a class="nav-link" href="{% url 'bancos' %}">Bancos</a>
       </li>
         <li class="nav-item">
             {% if user.is_authenticated %}
