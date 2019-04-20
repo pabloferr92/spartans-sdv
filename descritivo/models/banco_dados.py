@@ -1,4 +1,5 @@
 from django.db import models
+from descritivo.models.parceiro import Parceiro
 
 class BancoDados(models.Model):
     id = models.AutoField(primary_key=True)

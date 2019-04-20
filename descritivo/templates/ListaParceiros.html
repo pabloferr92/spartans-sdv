@@ -29,6 +29,7 @@
       <td>{{ parceiro.valor_tracking }}</td>
       <td>{{ parceiro.franquia }}</td>
       <td>{{ parceiro.faturamento_minimo }}</td>
+      <td><a href="{% url 'fechamento_parceiro' parceiro.id %}"><i class ="glyphicon glyphicon-pencil"></i>Fechamentos</a></td>
       <td><a href="{% url 'bancos_parceiro' parceiro.id %}"><i class ="glyphicon glyphicon-pencil"></i>Ver Bancos</a></td>
       <td><a href="{% url 'alterarparceiro' parceiro.id %}"><i class ="glyphicon glyphicon-pencil"></i>Alterar</a></td>
       <td><a href="{% url 'removerparceiro' parceiro.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>

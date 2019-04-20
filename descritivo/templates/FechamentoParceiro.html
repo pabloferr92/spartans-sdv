@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Usuários {% endblock %}
+{% block main %}
+<table class="table table-dark">
+<thead>
+   <tr>
+      <th scope="col">ID Fechamento</th>
+      <th scope="col">Banco</th>
+      <th scope="col">Volume Páginas</th>
+      <th scope="col">Valor Páginas</th>
+      <th scope="col">Qtde. Releasers</th>
+      <th scope="col">Valor Releaser</th>
+      <th scope="col">Volume Policy</th>
+      <th scope="col">Valor Policy</th>
+      <th scope="col">Volume Charge-Back</th>
+      <th scope="col">Valor Charge-Back</th>
+      <th scope="col">Volume Tracking</th>
+      <th scope="col">Valor Tracking</th>
+      <th scope="col">Valor Total</th>
+      
+   </tr>
+</thead>
+<tbody>
+   {% for fechamento in fechamentos %}
+   <tr>
+      <th scope="row"> {{ fechamento.id }}</th>
+      <td>{{ fechamento.id_banco.nome_banco }}</td>
+      <td>{{ fechamento.volume_paginas }}</td>
+      <td>{{ fechamento.valor_paginas }}</td>
+      <td>{{ fechamento.qtde_releaser }}</td>
+      <td>{{ fechamento.valor_releaser }}</td>
+      <td>{{ fechamento.volume_policy }}</td>
+      <td>{{ fechamento.valor_policy }}</td>
+      <td>{{ fechamento.volume_charge_back }}</td>
+      <td>{{ fechamento.valor_charge_back }}</td>
+      <td>{{ fechamento.volume_tracking }}</td>
+      <td>{{ fechamento.valor_tracking }}</td>
+      <td>{{ fechamento.valor_total }}</td>
+   
+   </tr>
+   {% endfor %}
+      <td></td>
+      <td>TOTAL</td>
+      <td>{{ total.volume_paginas }}</td>
+      <td>{{ total.valor_paginas }}</td>
+      <td>{{ total.qtde_releaser }}</td>
+      <td>{{ total.valor_releaser }}</td>
+      <td>{{ total.volume_policy }}</td>
+      <td>{{ total.valor_policy }}</td>
+      <td>{{ total.volume_charge_back }}</td>
+      <td>{{ total.valor_charge_back }}</td>
+      <td>{{ total.volume_tracking }}</td>
+      <td>{{ total.valor_tracking }}</td>
+      <td>{{ total.valor_total }}</td>
+</tbody>
+</table>
+<a href="{% url 'criarbanco' %}" class="btn btn-primary"> Cadastrar Banco </a>
+<a href="{% url 'fecharparceiro' parceiro.id %}" class="btn btn-primary"> Fechar Parceiro </a>
+{% endblock %}
+{% block footer %}
+<footer class="footer">
+   <div class="container">
+      <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+   </div>
+</footer>
+{% endblock %}

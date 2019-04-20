@@ -1,15 +1,9 @@
 from django.db import models
 from descritivo.models.parceiro import Parceiro
-from descritivo.models.banco_dados import BancoDados
 
 
-
-
-
-class Fechamento(models.Model):
-    id = models.IntegerField(primary_key=True)
+class FechamentoParceiro(models.Model):
     idparceiro = models.ForeignKey('Parceiro', models.DO_NOTHING, db_column='idparceiro', blank=True, null=True)
-    mes_referecia = models.DateField(blank=True, null=True)
     volume_total = models.IntegerField(blank=True, null=True)
     total_bancos = models.IntegerField(blank=True, null=True)
     valor_volume = models.IntegerField(blank=True, null=True)
@@ -22,7 +16,8 @@ class Fechamento(models.Model):
     bancos_tracking = models.IntegerField(blank=True, null=True)
     volume_tracking = models.IntegerField(blank=True, null=True)
     valor_tracking = models.IntegerField(blank=True, null=True)
+    mes_referencia = models.DateField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'fechamento'
+        db_table = 'fechamento_parceiro'

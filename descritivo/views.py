@@ -8,6 +8,8 @@ from descritivo.forms import BancoForm
 from core.models.models import AuthUser
 from descritivo.services.InsereParceiro import LerParceiroDoArquivo
 from descritivo.services.InsereBancos import LerBancosDoArquivo
+from descritivo.services.RealizarFechamentos import FechaBancosPorParceiro
+from descritivo.models.fechamento_banco import FechamentoBanco
 
 
 def ler_parceiro(request):
@@ -120,3 +122,18 @@ def remover_banco(request,id):
     banco = BancoDados.objects.get(id=id)
     banco.delete()
     return redirect('bancos')
+
+
+def RetornaFechamentoParceiro(request,id):
+    
+    from descritivo.services.RealizarFechamentos import RetornaValorTotalPorParceiro
+    context = {
+        "fechamentos": FechamentoBanco.objects.filter(id_banco__id_parceiro=id),
+        "total" : RetornaValorTotalPorParceiro(id),
+        "parceiro": Parceiro.objects.get(id=id)
+    }
+    return render(request,"FechamentoParceiro.html", context)
+
+def FecharParceiro(request,id):
+    FechaBancosPorParceiro(id)
+    return redirect('/desc/fechamento_parceiro/{}'.format(id))

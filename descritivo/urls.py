@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from descritivo.views import ler_parceiro,alterar_parceiro,criar_parceiro,remover_parceiro, criar_parceiro_lote
 from descritivo.views import ler_banco,alterar_banco,criar_banco,remover_banco, criar_banco_lote, ler_banco_por_parceiro
+from descritivo.views import RetornaFechamentoParceiro
+from descritivo.views import FecharParceiro
+
 
 urlpatterns = [
     path('criarpaceiro/', criar_parceiro,name='criarpaceiro'),
@@ -29,7 +32,9 @@ urlpatterns = [
     path('bancos/', ler_banco, name='bancos'),
     path('bancos_parceiro/<int:id>', ler_banco_por_parceiro, name = 'bancos_parceiro'),
     path('alterarbanco/<int:id>', alterar_banco, name='alterarbanco'),
-    path('removerbanco/<int:id>', remover_banco, name='removerbanco')
+    path('removerbanco/<int:id>', remover_banco, name='removerbanco'),
+    path('fechamento_parceiro/<int:id>', RetornaFechamentoParceiro, name='fechamento_parceiro'),
+    path('fecharparceiro/<int:id>', FecharParceiro, name='fecharparceiro')
 
     #path('/', core),
 
