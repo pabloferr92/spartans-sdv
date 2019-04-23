@@ -54,7 +54,7 @@
       <td>{{ total.valor_total }}</td>
 </tbody>
 </table>
-<a href="{% url 'criarbanco' %}" class="btn btn-primary"> Cadastrar Banco </a>
+<a href="{% url 'limparfechamento_parceiro' parceiro.id %}" class="btn btn-primary"> Limpar fechamento </a>
 <a href="{% url 'fecharparceiro' parceiro.id %}" class="btn btn-primary"> Fechar Parceiro </a>
 {% endblock %}
 {% block footer %}
